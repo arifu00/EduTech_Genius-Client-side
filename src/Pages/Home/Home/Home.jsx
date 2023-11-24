@@ -5,7 +5,6 @@ import OurPartners from "../OurPartners/OurPartners";
 const Home = () => {
     return (
         <div>
-           <Nav></Nav>
            <Banner></Banner> 
            <OurPartners></OurPartners>
         </div>

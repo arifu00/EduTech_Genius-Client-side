@@ -28,31 +28,31 @@ const Nav = () => {
 
   const navList = (
     <ul className="mt-2 mb-4 flex flex-col font-medium text-base gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
-      <li className="p-1 hover:text-lg hover:font-bold hover:text-[#85B935] ">
+      <li className="p-1 hover:text-lg hover:font-bold hover:text-[#003566] ">
         <NavLink
           to="/"
           className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "text-[#85B935]" : ""
+            isPending ? "pending" : isActive ? "text-[#003566]" : ""
           }
         >
           Home
         </NavLink>
       </li>
-      <li className="p-1 hover:text-lg hover:font-bold hover:text-[#85B935] ">
+      <li className="p-1 hover:text-lg hover:font-bold hover:text-[#003566] ">
         <NavLink
-          to="/availableFoods"
+          to="/allClasses"
           className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "text-[#85B935]" : ""
+            isPending ? "pending" : isActive ? "text-[#003566]" : ""
           }
         >
           All Classes
         </NavLink>
       </li>
-      <li className="p-1 hover:text-lg hover:font-bold hover:text-[#85B935] ">
+      <li className="p-1 hover:text-lg hover:font-bold hover:text-[#003566] ">
         <NavLink
-          to="/addFood"
+          to="/teachOnEdutech"
           className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "text-[#85B935]" : ""
+            isPending ? "pending" : isActive ? "text-[#003566]" : ""
           }
         >
           Teach on EduTech
@@ -133,7 +133,7 @@ const Nav = () => {
                       size="sm"
                       className="hidden lg:inline-block"
                     >
-                      <NavLink to="/login">
+                      <NavLink to="/signIn">
                         <span>Sign In</span>
                       </NavLink>
                     </Button>
