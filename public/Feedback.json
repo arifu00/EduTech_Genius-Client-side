@@ -1,0 +1,59 @@
+[
+    {
+      "id": 1,
+      "name": "John Doe",
+      "image": "https://i.ibb.co/CMH98hD/user1.jpg",
+      "title": "Web Development Fundamentals",
+      "rating": 4.5,
+      "description": "Great course! I learned a lot about the basics of web development. The instructor was clear and concise."
+    },
+    {
+      "id": 2,
+      "name": "Jane Smith",
+      "image": "https://i.ibb.co/bmWq5VV/user6.jpg",
+      "title": "Graphic Design Essentials",
+      "rating": 4.2,
+      "description": "The graphic design course exceeded my expectations. The hands-on projects were very helpful in applying what I learned."
+    },
+    {
+      "id": 3,
+      "name": "Bob Johnson",
+      "image": "https://i.ibb.co/jZjqSYJ/user5.jpg",
+      "title": "Digital Marketing Mastery",
+      "rating": 4.8,
+      "description": "Excellent content on digital marketing strategies. The real-world examples provided valuable insights."
+    },
+    {
+      "id": 4,
+      "name": "Alice Williams",
+      "image": "https://i.ibb.co/mSfbDS1/user2.jpg",
+      "title": "Advanced Web Development",
+      "rating": 4.6,
+      "description": "Challenging and informative. I appreciated the in-depth coverage of advanced web development topics."
+    },
+    {
+      "id": 5,
+      "name": "Charlie Brown",
+      "image": "https://i.ibb.co/9YGWCBk/person4.jpg",
+      "title": "Illustration Techniques",
+      "rating": 4.0,
+      "description": "The illustration techniques course was enjoyable. The step-by-step tutorials were easy to follow."
+    },
+    {
+      "id": 6,
+      "name": "Eva Davis",
+      "image": "https://i.ibb.co/WWdVLqM/user3.jpg",
+      "title": "Digital Art and Design",
+      "rating": 4.7,
+      "description": "As an aspiring digital artist, this course provided valuable insights into the world of digital art and design. Highly recommended."
+    },
+    {
+      "id": 7,
+      "name": "Sam Wilson",
+      "image": "https://i.ibb.co/m9RnFfK/person5.jpg",
+      "title": "Data Science Fundamentals",
+      "rating": 4.3,
+      "description": "Clear explanations and practical examples made learning data science fundamentals enjoyable. Looking forward to more courses!"
+    }
+  ]
+  

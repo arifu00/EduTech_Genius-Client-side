@@ -1,51 +1,49 @@
 import Container from "../../../Components/Container/Container";
 import { FaBook, FaUsers } from "react-icons/fa6";
 import statisticsImg from "../../../assets/Statistics/Statistics.jpg";
-import ourStatistics from "../../../assets/Statistics/ourstatistics.jpg";
+import ourStatistics from "../../../assets/Statistics/OurStatisticsjpg.jpg";
 const OurStatistics = () => {
   return (
-    <div>
-      <div
-        className="relative bg-fixed bg-cover bg-center "
-        style={{ backgroundImage: `url(${statisticsImg})` }}
-      >
-        <div className="bg-opacity-100 absolute inset-0 bg-[#00000040]"></div>
-        <div className="relative z-10 pb-20">
-          <Container>
-            <div className="py-20">
-              <h2 className="text-center font-lora text-4xl italic text-white hover:underline transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 uppercase">
-                Our ACHIEVEMENTS
+    <Container>
+      <div className="bg-[#E8FAFF] py-20 md:py-40 px-8 rounded-xl">
+        <div className="flex flex-col-reverse lg:flex-row justify-between items-center gap-8">
+          <div className="lg:w-2/3">
+            <div className="">
+              <h6 className="font-lora font-semibold text-xl lg:text-4xl italic text-left text-[#FF2712]">
+                Why Ours
+              </h6>
+              <h2 className="text-[#000000] text-2xl lg:text-5xl text-left my-7 font-black">
+                Our Best Achievements
               </h2>
+              <p className="text-base md:text-lg font-normal">
+                Ours - Unveiling Excellence encapsulates our journey of
+                achieving unparalleled success and setting new benchmarks in
+                various domains, driven by innovation, dedication, and a
+                commitment to excellence.
+              </p>
             </div>
-            {/* users / enroll change last  */}
 
-            <div className="text-center flex justify-between items-center gap-4 ">
-              <div className="  p-16 font-lora italic text-[#fff] text-4xl font-medium space-y-6">
-                <div className="flex justify-center items-center">
-                  <FaUsers className="text-7xl" />
-                </div>
-                <h3 className="">10</h3>
-                <h4 className="">Total Users </h4>
+            <div className="flex flex-wrap mt-12 text-center gap-10 justify-center">
+              <div className="">
+                <h1 className="font-black text-xl md:text-3xl mb-2">60</h1>
+                <h3 className="font-semibold text-lg md:text-2xl">Total User</h3>
               </div>
-              <div className=" p-16 font-lora italic text-[#fff] text-4xl font-medium space-y-6">
-                <div className="flex justify-center items-center">
-                  <FaBook className="text-7xl"></FaBook>
-                </div>
-                <h3 className="">30</h3>
-                <h4 className="">Total Classes</h4>
+              <div className="">
+                <h1 className="font-black text-xl md:text-3xl mb-2">20</h1>
+                <h3 className="font-semibold text-lg md:text-2xl">Total Classes</h3>
               </div>
-              <div className=" p-16  font-lora italic text-[#fff] text-4xl font-medium space-y-6">
-                <div className="flex justify-center items-center">
-                  <FaUsers className="text-7xl" />
-                </div>
-                <h3 className="">50</h3>
-                <h4 className="">STUDENTS ENROLLED</h4>
+              <div className="">
+                <h1 className="font-black text-xl md:text-3xl mb-2">30</h1>
+                <h3 className="font-semibold text-lg md:text-2xl">Enrollment Student</h3>
               </div>
             </div>
-          </Container>
+          </div>
+          <div className="lg:w-1/3 ">
+            <img className="" src={ourStatistics} alt="" />
+          </div>
         </div>
       </div>
-    </div>
+    </Container>
   );
 };
 
