@@ -69,10 +69,10 @@ const Nav = () => {
                 {/* logo  */}
               <Link to="/">
                 <div className="flex items-center gap-4">
-                  <img className="rounded-full w-16 h-16" src={logo} alt="" />
+                  <img className="rounded-full w-10 h-10 md:w-16 md:h-16" src={logo} alt="" />
                   <Typography
                     as="p"
-                    className="text-[#1A759F] hover:underline cursor-pointer py-1.5 font-bold text-2xl "
+                    className="text-[#1A759F] hover:underline cursor-pointer py-1.5 font-bold text-lg md:text-2xl "
                   >
                     Edu<span className="text-black">Tech</span>Genius
                   </Typography>

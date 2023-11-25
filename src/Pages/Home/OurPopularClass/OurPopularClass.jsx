@@ -16,6 +16,31 @@ const OurPopularClass = () => {
       .then((res) => res.json())
       .then((data) => setCourses(data));
   }, []);
+  const [slidesPerView, setSlidesPerView] = useState(1);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const windowWidth = window.innerWidth;
+      if (windowWidth >= 1200) {
+        setSlidesPerView(3);
+      } else if (windowWidth >= 767) {
+        setSlidesPerView(2);
+      } else {
+        setSlidesPerView(1);
+      }
+    };
+
+    // Initial setup
+    handleResize();
+
+    // Add event listener for window resize
+    window.addEventListener("resize", handleResize);
+
+    // Clean up the event listener when the component is unmounted
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
   return (
     <Container>
       <div className="mt-20">
@@ -35,7 +60,7 @@ const OurPopularClass = () => {
             disableOnInteraction: false,
           }}
           modules={[Autoplay]}
-          slidesPerView={3}
+          slidesPerView={slidesPerView}
           className="mySwiper mb-12 text-center"
         >
           <div className="my-12">
@@ -55,7 +80,12 @@ const OurPopularClass = () => {
                     <h6 className="font-bold font-lora text-xl italic">
                       Total Enrollment: {course.total_enrollment}
                     </h6>
-                    <Rating name="half-rating-read" defaultValue={course.review} precision={0.1} readOnly />
+                    <Rating
+                      name="half-rating-read"
+                      defaultValue={course.review}
+                      precision={0.1}
+                      readOnly
+                    />
                   </CardBody>
                 </Card>
               </SwiperSlide>

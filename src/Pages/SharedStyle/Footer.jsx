@@ -45,10 +45,10 @@ const Footer = () => {
           <div className="flex flex-row flex-wrap items-center justify-center gap-y-6 gap-x-12 bg-[#edf2fb] text-center md:justify-between">
             <Link to="/">
               <div className="flex items-center gap-4">
-                <img className="rounded-full w-16 h-16" src={logo} alt="" />
+                <img className="rounded-full h-10 w-10 md:w-16 md:h-16" src={logo} alt="" />
                 <Typography
                   as="p"
-                  className="text-[#1A759F] hover:underline cursor-pointer py-1.5 font-bold text-2xl "
+                  className="text-[#1A759F] hover:underline cursor-pointer py-1.5 font-bold text-xl md:text-2xl "
                 >
                   Edu<span className="text-black">Tech</span>Genius
                 </Typography>
@@ -58,8 +58,8 @@ const Footer = () => {
               {navList}
             </div>
           </div>
-          <hr className="my-8 border-blue-gray-50" />
-          <p className="text-center font-lora text-xl font-bold">
+          <hr className="my-8 border-[#d6d6d6]" />
+          <p className="text-center font-lora text-xs md:text-xl md:font-bold">
             Copyright © {new Date().getFullYear()} EduTech_Genius. All rights
             reserved.
           </p>
