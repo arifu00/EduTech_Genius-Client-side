@@ -1,6 +1,4 @@
 import Container from "../../../Components/Container/Container";
-import { FaBook, FaUsers } from "react-icons/fa6";
-import statisticsImg from "../../../assets/Statistics/Statistics.jpg";
 import ourStatistics from "../../../assets/Statistics/OurStatisticsjpg.jpg";
 const OurStatistics = () => {
   return (
@@ -26,15 +24,21 @@ const OurStatistics = () => {
             <div className="flex flex-wrap mt-12 text-center gap-10 justify-center">
               <div className="">
                 <h1 className="font-black text-xl md:text-3xl mb-2">60</h1>
-                <h3 className="font-semibold text-lg md:text-2xl">Total User</h3>
+                <h3 className="font-semibold text-lg md:text-2xl">
+                  Total User
+                </h3>
               </div>
               <div className="">
                 <h1 className="font-black text-xl md:text-3xl mb-2">20</h1>
-                <h3 className="font-semibold text-lg md:text-2xl">Total Classes</h3>
+                <h3 className="font-semibold text-lg md:text-2xl">
+                  Total Classes
+                </h3>
               </div>
               <div className="">
                 <h1 className="font-black text-xl md:text-3xl mb-2">30</h1>
-                <h3 className="font-semibold text-lg md:text-2xl">Enrollment Student</h3>
+                <h3 className="font-semibold text-lg md:text-2xl">
+                  Enrollment Student
+                </h3>
               </div>
             </div>
           </div>
