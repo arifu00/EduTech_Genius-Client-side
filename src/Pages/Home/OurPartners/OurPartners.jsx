@@ -1,4 +1,5 @@
 import Container from "../../../Components/Container/Container";
+import SectionTitle from "../../../Components/Container/SectionTitle";
 
 const OurPartners = () => {
   const partners = [
@@ -13,14 +14,11 @@ const OurPartners = () => {
     <div className="mt-12 bg-[#e5e5e5] py-12">
       <Container>
         <div className="">
-          <h2 className="text-center font-lora text-4xl italic">
-            Our Partners
-          </h2>
-          <p className="text-center mt-3 font-roboto w-[900px] mx-auto text-xl">
-            Partnering with Tech Innovators Collaborative, we bring the latest
-            technological advancements to our educational programs, ensuring
-            students stay ahead in the rapidly evolving digital landscape.
-          </p>
+          <SectionTitle 
+          tittle={' Our Partners'} 
+          subTitle={"Partnering with Tech Innovators Collaborative, we bring the latest technological advancements to our educational programs, ensuring students stay ahead in the rapidly evolving digital landscape."}></SectionTitle>
+          
+        
         </div>
         <div className="flex justify-center items-center mt-12 gap-5  ">
           {partners.map((partner) => (

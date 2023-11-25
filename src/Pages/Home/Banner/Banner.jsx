@@ -20,7 +20,7 @@ const Banner = () => {
       <button className="text-sm lg:text-lg font-medium md:font-semibold px-1 md:px-4 py-2 md:py-3 rounded-md bg-[#1a759f] hover:bg-[#50C1EC] mr-5">
         Explore More
       </button>
-      <Link to="/addFood">
+      <Link to="/signIn">
         <button className="text-sm lg:text-lg font-medium md:font-semibold px-1 md:px-4 py-2 md:py-3 rounded-md bg-transparent outline-white outline hover:bg-[#FF3811] hover:outline-0 hover:text-black">
           Enroll Now
         </button>
@@ -44,7 +44,7 @@ const Banner = () => {
       >
         {/* slider-1  */}
         <SwiperSlide>
-          <div className=" lg:h-[550px] flex justify-center">
+          <div className=" lg:h-[650px] flex justify-center">
             <img
               className="w-full lg:object-cover rounded-lg"
               src={banner1}
@@ -67,7 +67,7 @@ const Banner = () => {
         </SwiperSlide>
         {/* slider 2 */}
         <SwiperSlide>
-          <div className="lg:h-[550px] flex justify-center">
+          <div className="lg:h-[650px] flex justify-center">
             <img className="w-full rounded-lg" src={banner2} alt="" />
             <div className="absolute flex items-center h-full left-0 top-0 rounded-xl bg-gradient-to-r from-[#151515] to-rgba(21, 21, 21, 0.00)  ">
               <div className="text-white md:w-1/2 py-4 pl-8 md:space-y-7 md:pl-20">
@@ -85,7 +85,7 @@ const Banner = () => {
         </SwiperSlide>
         {/* slider 3 */}
         <SwiperSlide>
-          <div className="lg:h-[550px] flex justify-center">
+          <div className="lg:h-[650px] flex justify-center">
             <img className="w-full  rounded-lg" src={banner3} alt="" />
             <div className="absolute flex items-center h-full left-0 top-0 rounded-xl bg-gradient-to-r from-[#151515] to-rgba(21, 21, 21, 0.00)  ">
               <div className="text-white md:w-1/2 py-4 pl-8 md:space-y-7 md:pl-20">

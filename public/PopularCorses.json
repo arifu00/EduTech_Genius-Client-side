@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "course_title": "Web Design Fundamentals",
+        "category": "Web",
+        "total_enrollment": 3000,
+        "image": "https://i.ibb.co/Pwdwrh8/Web-Design-Fundamentals.jpg",
+        "review": 4.5
+    },
+    {
+        "id": 2,
+        "course_title": "Graphic Design Essentials",
+        "category": "Graphic",
+        "total_enrollment": 2500,
+        "image": "https://i.ibb.co/vx5H89w/Graphic-Design-Essentials.jpg",
+        "review": 4.2
+    },
+    {
+        "id": 3,
+        "course_title": "Digital Marketing Mastery",
+        "category": "Digital",
+        "total_enrollment": 3500,
+        "image": "https://i.ibb.co/8crbdRt/Digital-Marketing-Mastery.jpg",
+        "review": 4.8
+    },
+    {
+        "id": 4,
+        "course_title": "Advanced Web Development",
+        "category": "Web",
+        "total_enrollment": 2800,
+        "image": "https://i.ibb.co/2kmjd2B/Advanced-Web-Development.jpg",
+        "review": 4.6
+    },
+    {
+        "id": 5,
+        "course_title": "Illustration Techniques",
+        "category": "Graphic",
+        "total_enrollment": 2000,
+        "image": "https://i.ibb.co/Y7FzFn1/Illustration-Techniques.jpg",
+        "review": 4.0
+    },
+    {
+        "id": 6,
+        "course_title": "Digital Art and Design",
+        "category": "Digital",
+        "total_enrollment": 3200,
+        "image": "https://i.ibb.co/PNL5Svd/Digital-Art.jpg",
+        "review": 4.7
+    }
+]
