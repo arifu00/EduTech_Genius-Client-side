@@ -7,7 +7,7 @@ import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import Container from "../../../Components/Container/Container";
-import { Rating } from "@smastrom/react-rating";
+import { Rating } from "@mui/material";
 const OurPopularClass = () => {
   const [courses, setCourses] = useState([]);
   //   console.log(course);
@@ -18,7 +18,7 @@ const OurPopularClass = () => {
   }, []);
   return (
     <Container>
-      <div className="mt-12">
+      <div className="mt-20">
         <SectionTitle
           tittle={"Our Popular Courses"}
           subTitle={`Popular courses provide valuable knowledge and skills 
@@ -55,6 +55,7 @@ const OurPopularClass = () => {
                     <h6 className="font-bold font-lora text-xl italic">
                       Total Enrollment: {course.total_enrollment}
                     </h6>
+                    <Rating name="half-rating-read" defaultValue={course.review} precision={0.1} readOnly />
                   </CardBody>
                 </Card>
               </SwiperSlide>
