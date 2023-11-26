@@ -8,16 +8,51 @@ import {
   Input,
   Typography,
 } from "@material-tailwind/react";
+
 import registerImg from "../../assets/Register/register.gif";
 import { useForm } from "react-hook-form";
+import SocialLogin from "../../Components/SocialLogin/SocialLogin";
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/AuthProviders";
+import { updateProfile } from "firebase/auth";
+import auth from "../../firebase/firebase.config";
+
 const Register = () => {
+  const { createUser } = useContext(AuthContext);
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    const name = data.name;
+    const email = data.email;
+    const password = data.password;
+    const photo = data.photo;
+    console.log(name, email, password, photo);
+    
+    createUser(email, password)
+      .then((res) => {
+        const user = res.user;
+        console.log(user);
+        updateProfile(auth.currentUser, {
+          displayName: name,
+          photoURL: photo,
+        })
+          .then(() => {
+            // User information updated successfully
+            console.log("User created with name and photo:", user);
+          })
+          .catch((error) => {
+            console.error("Error updating user information:", error.message);
+          });
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
   return (
     <div className="my-20">
       <Helmet>
@@ -97,22 +132,20 @@ const Register = () => {
                   <p className="text-red-600">Password is required</p>
                 )}
                 <Typography variant="h6" color="blue-gray" className="-mb-3">
-                  Photo URL
+                  Upload Photo
                 </Typography>
+
                 <Input
-                  type="file"
+                  type="text"
                   name="photo"
                   size="lg"
-                  {...register("photo", { required: true })}
                   placeholder="Photo Url"
+                  {...register("photo")}
                   className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
                   labelProps={{
                     className: "before:content-none after:content-none",
                   }}
                 />
-                {errors.photo?.type === "required" && (
-                  <p className="text-red-600">Photo is required</p>
-                )}
               </div>
               <Checkbox
                 name="checkbox"
@@ -136,6 +169,12 @@ const Register = () => {
               <Button className="mt-6" fullWidth type="submit">
                 Register
               </Button>
+              <h5 className="mt-7 text-lg font-medium text-center">
+                Or Login With
+              </h5>
+              <div className="text-center">
+                <SocialLogin></SocialLogin>
+              </div>
               <Typography color="gray" className="mt-4 text-center font-normal">
                 Already have an account?{" "}
                 <NavLink

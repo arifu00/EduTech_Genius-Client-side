@@ -1,11 +1,10 @@
 import { Helmet } from "react-helmet";
 import signInImg from "../../assets/SignIn/login.gif";
-import { AiFillGoogleCircle } from "react-icons/ai";
-
 import { NavLink } from "react-router-dom";
 import { Button, Card, Input, Typography } from "@material-tailwind/react";
 import Container from "../../Components/Container/Container";
 import { useForm } from "react-hook-form";
+import SocialLogin from "../../Components/SocialLogin/SocialLogin";
 
 const SignIn = () => {
   const {
@@ -86,12 +85,7 @@ const SignIn = () => {
                 Or Login With
               </h5>
               <div className="text-center">
-                <button
-                  //   onClick={handleGoogleLogin}
-                  className="p-2 bg-[#F5F5F8]  hover:bg-blue-100 my-3 hover:text-red-400 text-6xl rounded-full"
-                >
-                  <AiFillGoogleCircle></AiFillGoogleCircle>
-                </button>
+                <SocialLogin></SocialLogin>
               </div>
               <Typography color="gray" className="mt-4 text-center font-normal">
                 New user?
