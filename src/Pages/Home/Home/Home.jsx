@@ -5,6 +5,7 @@ import OurPartners from "../OurPartners/OurPartners";
 import OurPopularClass from "../OurPopularClass/OurPopularClass";
 import OurStatistics from "../OurStatistics/OurStatistics";
 import TeacherJoin from "../TeacherJoin/TeacherJoin";
+import ExpertInstructors from "../ExpertInstructors/ExpertInstructors";
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
       <Banner></Banner>
       <OurPopularClass></OurPopularClass>
       <OurStatistics></OurStatistics>
+      <ExpertInstructors></ExpertInstructors>
       <TeacherJoin></TeacherJoin>
       <OurPartners></OurPartners>
       <Feedback></Feedback>

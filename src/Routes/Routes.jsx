@@ -5,11 +5,13 @@ import AllClasses from "../Pages/AllClasses/AllClasses";
 import TeachOnEduTech from "../Pages/TeachOnEduTech/TeachOnEduTech";
 import SignIn from "../Pages/SignIn/SignIn";
 import Register from "../Pages/Register/Register";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         index: true,

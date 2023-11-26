@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet";
 import Container from "../../Components/Container/Container";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import {
   Button,
   Card,
@@ -20,6 +20,10 @@ import Swal from "sweetalert2";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const from = location.state?.from?.pathname || "/";
+  console.log("location on state", location.state);
 
   const {
     register,
@@ -45,6 +49,7 @@ const Register = () => {
           showConfirmButton: true,
           timer: 1200,
         });
+        navigate(from, { replace: true });
         updateProfile(auth.currentUser, {
           displayName: name,
           photoURL: photo,

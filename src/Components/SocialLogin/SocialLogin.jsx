@@ -3,8 +3,13 @@ import { useContext } from "react";
 import { FaGoogle } from "react-icons/fa";
 import { AuthContext } from "../../Providers/AuthProviders";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 const SocialLogin = () => {
   const { googleSignIn } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const from = location.state?.from?.pathname || "/";
+  console.log("location on state", location.state);
 
   const handleGoogleSignIn = () => {
     googleSignIn()
@@ -17,6 +22,7 @@ const SocialLogin = () => {
           showConfirmButton: true,
           timer: 1200,
         });
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.log(error.message);

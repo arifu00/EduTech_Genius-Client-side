@@ -18,7 +18,7 @@ const Feedback = () => {
   return (
     <div className="bg-[#DDF4DB] my-8">
       <Container>
-        <div className="py-20 md:py-40">
+        <div className="py-20 md:py-32">
           <div className="">
             <h5 className="font-lora font-semibold text-xl lg:text-4xl italic text-center text-[#FF2712]">
               Learners Tributes

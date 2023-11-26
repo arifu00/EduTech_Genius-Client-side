@@ -1,0 +1,35 @@
+[
+    {
+      "id": 1,
+      "name": "Alice Williams",
+      "img": "https://i.ibb.co/m9RnFfK/person5.jpg",
+      "category": "Web Development Fundamentals",
+      "totalClasses": 10,
+      "followedStudent": 500
+    },
+    {
+      "id": 2,
+      "name": "Sam Wilson",
+      "img": "https://i.ibb.co/bmWq5VV/user6.jpg",
+      "category": "Digital Marketing Mastery",
+      "totalClasses": 15,
+      "followedStudent": 800
+    },
+    {
+      "id": 3,
+      "name": "John Doe",
+      "img": "https://i.ibb.co/jZjqSYJ/user5.jpg",
+      "category": "Data Science",
+      "totalClasses": 12,
+      "followedStudent": 600
+    },
+    {
+      "id": 4,
+      "name": "Eva Davis",
+      "img": "https://i.ibb.co/WWdVLqM/user3.jpg",
+      "category": "Digital Art and Design",
+      "totalClasses": 8,
+      "followedStudent": 300
+    }
+  ]
+  

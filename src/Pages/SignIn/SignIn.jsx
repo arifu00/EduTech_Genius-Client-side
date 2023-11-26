@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet";
 import signInImg from "../../assets/SignIn/login.gif";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { Button, Card, Input, Typography } from "@material-tailwind/react";
 import Container from "../../Components/Container/Container";
 import { useForm } from "react-hook-form";
@@ -11,6 +11,10 @@ import Swal from "sweetalert2";
 
 const SignIn = () => {
   const { loginUser } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const from = location.state?.from?.pathname || "/";
+  console.log("location on state", from);
 
   const {
     register,
@@ -33,6 +37,7 @@ const SignIn = () => {
           showConfirmButton: true,
           timer: 1200,
         });
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.log(error.message);

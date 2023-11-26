@@ -3,7 +3,7 @@ import ourStatistics from "../../../assets/Statistics/OurStatisticsjpg.jpg";
 const OurStatistics = () => {
   return (
     <Container>
-      <div className="bg-[#E8FAFF] py-20 md:py-40 px-8 rounded-xl">
+      <div className="bg-[#E8FAFF] py-20 md:py-40 px-8 rounded-xl my-12">
         <div className="flex flex-col-reverse lg:flex-row justify-between items-center gap-8">
           <div className="lg:w-2/3">
             <div className="">
