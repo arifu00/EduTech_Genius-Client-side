@@ -5,15 +5,39 @@ import { Button, Card, Input, Typography } from "@material-tailwind/react";
 import Container from "../../Components/Container/Container";
 import { useForm } from "react-hook-form";
 import SocialLogin from "../../Components/SocialLogin/SocialLogin";
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/AuthProviders";
+import Swal from "sweetalert2";
 
 const SignIn = () => {
+  const { loginUser } = useContext(AuthContext);
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    const email = data.email;
+    const password = data.password;
+    // console.log(email, password);
+    // firebase login
+    loginUser(email, password)
+      .then((res) => {
+        console.log(res.user);
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Sign In Successful",
+          showConfirmButton: true,
+          timer: 1200,
+        });
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
   return (
     <div className="my-12">
       <Helmet>
@@ -35,7 +59,7 @@ const SignIn = () => {
               className="text-center text-2xl font-black"
               color="blue-gray"
             >
-              Login
+              Sign In
             </Typography>
 
             <form
