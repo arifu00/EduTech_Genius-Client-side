@@ -139,7 +139,7 @@ const TeachOnEduTech = () => {
                   Illustration Techniques
                 </option>
                 <option value="Digital Art and Design">
-                  Digital Art andDesign
+                  Digital Art and Design
                 </option>
                 <option value="Data Science Fundamentals">
                   Data Science Fundamentals

@@ -1,5 +1,4 @@
 import { Card, CardHeader, CardBody } from "@material-tailwind/react";
-import SectionTitle from "../../../Components/Container/SectionTitle";
 import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
@@ -8,6 +7,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import Container from "../../../Components/Container/Container";
 import { Rating } from "@mui/material";
+import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 const OurPopularClass = () => {
   const [courses, setCourses] = useState([]);
   //   console.log(course);

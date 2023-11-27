@@ -1,6 +1,6 @@
 import { Tooltip } from "@material-tailwind/react";
 import Container from "../../../Components/Container/Container";
-import SectionTitle from "../../../Components/Container/SectionTitle";
+import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 
 const OurPartners = () => {
   const partners = [

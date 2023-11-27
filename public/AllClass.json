@@ -1,0 +1,102 @@
+[
+    {
+        "id": 1,
+        "title": "Web Development Bootcamp",
+        "name": "John Doe",
+        "image": "https://i.ibb.co/2kmjd2B/Advanced-Web-Development.jpg",
+        "price": "199.99",
+        "shortDescription": "Learn the essentials of web development in this comprehensive bootcamp.",
+        "total_enrollment": "3200",
+        "category": "Advanced Web Development"
+    },
+    {
+        "id": 2,
+        "title": "Illustration Masterclass",
+        "name": "Jane Smith",
+        "image": "https://i.ibb.co/Y7FzFn1/Illustration-Techniques.jpg",
+        "price": "149.99",
+        "shortDescription": "Unlock your creative potential with advanced illustration techniques.",
+        "total_enrollment": "2200",
+        "category": "Illustration Techniques"
+    },
+    {
+        "id": 3,
+        "title": "Data Science Foundations",
+        "name": "Alice Johnson",
+        "image": "https://img.freepik.com/free-vector/data-concept-illustration-idea-collecting-analysing-using_613284-1574.jpg?size=626&ext=jpg&ga=GA1.1.607722214.1694453858&semt=ais",
+        "price": "249.99",
+        "shortDescription": "Dive into the fundamentals of data science and analytics.",
+        "total_enrollment": "4200",
+        "category": "Data Science Fundamentals"
+    },
+    {
+        "id": 4,
+        "title": "Digital Marketing Mastery",
+        "name": "Bob Williams",
+        "image": "https://i.ibb.co/8crbdRt/Digital-Marketing-Mastery.jpg",
+        "price": "179.99",
+        "shortDescription": "Master the art of digital marketing and boost your online presence.",
+        "total_enrollment": "1200",
+        "category": "Digital Marketing Mastery"
+    },
+    {
+        "id": 5,
+        "title": "Graphic Design Essentials",
+        "name": "Eva Martinez",
+        "image": "https://i.ibb.co/vx5H89w/Graphic-Design-Essentials.jpg",
+        "price": "159.99",
+        "shortDescription": "Learn the essential skills for creating stunning graphic designs.",
+        "total_enrollment": "2800",
+        "category": "Graphic Design Essentials"
+    },
+    {
+        "id": 6,
+        "title": "Web Development Fundamentals",
+        "name": "Chris Wilson",
+        "image": "https://i.ibb.co/Pwdwrh8/Web-Design-Fundamentals.jpg",
+        "price": "129.99",
+        "shortDescription": "Build a strong foundation in web development with this introductory course.",
+        "total_enrollment": "6200",
+        "category": "Web Development Fundamentals"
+    },
+    {
+        "id": 7,
+        "title": "Digital Art and Design Workshop",
+        "name": "Sophia Lee",
+        "image": "https://i.ibb.co/PNL5Svd/Digital-Art.jpg",
+        "price": "189.99",
+        "shortDescription": "Explore the world of digital art and design in this hands-on workshop.",
+        "total_enrollment": "2000",
+        "category": "Digital Art and Design"
+    },
+    {
+        "id": 8,
+        "title": "Advanced Web Development Techniques",
+        "name": "Michael Brown",
+        "image": "https://i.ibb.co/2kmjd2B/Advanced-Web-Development.jpg",
+        "price": "219.99",
+        "shortDescription": "Take your web development skills to the next level with advanced techniques.",
+        "total_enrollment": "5200",
+        "category": "Advanced Web Development"
+    },
+    {
+        "id": 9,
+        "title": "Digital Marketing Strategies",
+        "name": "Karen Anderson",
+        "image": "https://i.ibb.co/8crbdRt/Digital-Marketing-Mastery.jpg",
+        "price": "199.99",
+        "shortDescription": "Explore effective digital marketing strategies for business success.",
+        "total_enrollment": "8200",
+        "category": "Digital Marketing Mastery"
+    },
+    {
+        "id": 10,
+        "title": "Mastering Graphic Design Tools",
+        "name": "David Miller",
+        "image": "https://i.ibb.co/vx5H89w/Graphic-Design-Essentials.jpg",
+        "price": "169.99",
+        "shortDescription": "Become proficient in essential graphic design tools and software.",
+        "total_enrollment": "2200",
+        "category": "Graphic Design Essentials"
+    }
+]

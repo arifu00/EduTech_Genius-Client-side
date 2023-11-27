@@ -5,8 +5,12 @@ import Footer from "../Pages/SharedStyle/Footer";
 const Main = () => {
   return (
     <div className="font-roboto">
-      <Nav></Nav>
-      <Outlet></Outlet>
+      <div className="sticky top-0 z-50 ">
+        <Nav></Nav>
+      </div>
+      <div className="z-40">
+        <Outlet></Outlet>
+      </div>
       <Footer></Footer>
     </div>
   );

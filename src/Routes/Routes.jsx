@@ -7,6 +7,7 @@ import SignIn from "../Pages/SignIn/SignIn";
 import Register from "../Pages/Register/Register";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import PrivateRoute from "./PrivateRoute";
+import ClassDetail from "../Pages/AllClasses/ClassDetail/ClassDetail";
 
 export const router = createBrowserRouter([
   {
@@ -21,6 +22,15 @@ export const router = createBrowserRouter([
       {
         path: "allClasses",
         element: <AllClasses></AllClasses>,
+      },
+      {
+        path: "allClasses/:id",
+        element: (
+          <PrivateRoute>
+            <ClassDetail></ClassDetail>
+          </PrivateRoute>
+        ),
+        loader: ({params})=> fetch(`/AllClass.json/${params.id}`)
       },
       {
         path: "teachOnEduTech",
