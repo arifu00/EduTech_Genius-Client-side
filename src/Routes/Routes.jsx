@@ -30,7 +30,8 @@ export const router = createBrowserRouter([
             <ClassDetail></ClassDetail>
           </PrivateRoute>
         ),
-        loader: ({params})=> fetch(`/AllClass.json/${params.id}`)
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/allClasses/${params.id}`),
       },
       {
         path: "teachOnEduTech",

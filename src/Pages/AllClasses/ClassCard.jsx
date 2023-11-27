@@ -9,7 +9,7 @@ import {
 import { Link } from "react-router-dom";
 
 const ClassCard = ({ allClass }) => {
-  const { id, title, image, price, total_enrollment, shortDescription, name, category } = allClass;
+  const { _id, title, image, price, total_enrollment, shortDescription, name, category } = allClass;
     // console.log(total_enrollment);
   return (
     <div>
@@ -47,7 +47,7 @@ const ClassCard = ({ allClass }) => {
           </Typography>
         </CardBody>
         <CardFooter className="pt-0">
-         <Link to={`/allClasses/${id}`}>
+         <Link to={`/allClasses/${_id}`}>
          <Button
             ripple={false}
             fullWidth={true}
