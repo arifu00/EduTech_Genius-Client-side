@@ -25,6 +25,8 @@ const AllClasses = () => {
     },
   });
   console.log(allClasses, isLoading);
+ 
+
   if (isLoading) {
     return <div className="my-20 space-y-8">
         <SectionTitle tittle={"Our All Classes"}></SectionTitle>

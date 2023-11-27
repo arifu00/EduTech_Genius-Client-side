@@ -53,7 +53,7 @@ const TeachOnEduTech = () => {
                     <Input
                       size="lg"
                       {...register("name")}
-                      name="name"
+                      autoComplete="off"
                       defaultValue={user.displayName}
                       readOnly
                       className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
@@ -70,6 +70,7 @@ const TeachOnEduTech = () => {
                     <Input
                       size="lg"
                       name="email"
+                      autoComplete="off"
                       {...register("email")}
                       defaultValue={user.email}
                       readOnly
@@ -103,10 +104,10 @@ const TeachOnEduTech = () => {
               </Typography>
               <select
                 defaultValue="default"
-                {...register("experience")}
+                {...register("experience", { required: true})}
                 className="border px-3 py-2 rounded-lg text-blue-gray-500 border-[#B0BEC5] w-full "
               >
-                <option value="default">Select Experience</option>
+                <option value="">Select Experience</option>
                 <option value="Beginner">
                 Beginner
                 </option>
@@ -127,11 +128,10 @@ const TeachOnEduTech = () => {
                 Select Category
               </Typography>
               <select
-                defaultValue="default"
-                {...register("category")}
+                {...register("category", { required: true })}
                 className="border px-3 py-2 rounded-lg text-blue-gray-500 border-[#B0BEC5] w-full "
               >
-                <option value="default">Select a Category</option>
+                <option value="">Select a Category</option>
                 <option value="Advanced Web Development">
                   Advanced Web Development
                 </option>
@@ -154,7 +154,11 @@ const TeachOnEduTech = () => {
                   Web Development Fundamentals
                 </option>
               </select>
-
+              {errors.category?.type === "required" && (
+                <p className="text-red-600">
+                  Please Select one valid category{" "}
+                </p>
+              )}
               <Button className="mt-6" type="submit" fullWidth>
                 Submit for review
               </Button>
