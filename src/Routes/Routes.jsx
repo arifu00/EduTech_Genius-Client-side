@@ -6,6 +6,7 @@ import TeachOnEduTech from "../Pages/TeachOnEduTech/TeachOnEduTech";
 import SignIn from "../Pages/SignIn/SignIn";
 import Register from "../Pages/Register/Register";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -23,7 +24,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "teachOnEduTech",
-        element: <TeachOnEduTech></TeachOnEduTech>,
+        element: (
+          <PrivateRoute>
+            <TeachOnEduTech></TeachOnEduTech>
+          </PrivateRoute>
+        ),
       },
       {
         path: "signIn",
