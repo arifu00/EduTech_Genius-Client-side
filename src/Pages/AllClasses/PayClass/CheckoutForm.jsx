@@ -2,6 +2,7 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useContext, useEffect, useState } from "react";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import { AuthContext } from "../../../Providers/AuthProviders";
+import Swal from "sweetalert2";
 
 const CheckoutForm = ({ loadedClass }) => {
   const axiosPublic = useAxiosPublic();
@@ -11,7 +12,7 @@ const CheckoutForm = ({ loadedClass }) => {
   const [error, setError] = useState("");
   const [transactionId, setTransactionId] = useState("");
   const [clientSecret, setClientSecret] = useState("");
-// console.log(loadedClass);
+  // console.log(loadedClass);
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
     axiosPublic
@@ -24,7 +25,7 @@ const CheckoutForm = ({ loadedClass }) => {
       });
   }, [axiosPublic, loadedClass]);
 
-//   payment related form handler
+  //   payment related form handler
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (!stripe || !elements) {
@@ -63,7 +64,29 @@ const CheckoutForm = ({ loadedClass }) => {
       console.log("payment intent", paymentIntent);
       if (paymentIntent.status === "succeeded") {
         // console.log("transaction id :", paymentIntent.id);
+        Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Payment Successful",
+            showConfirmButton: true,
+            timer: 1200,
+          });
         setTransactionId(paymentIntent.id);
+        const enrollClass = {
+          transactionId: paymentIntent.id,
+          userName: user.displayName,
+          userEmail: user.email,
+          title: loadedClass.title,
+          teacherName: loadedClass.name,
+          price: loadedClass.price,
+          image: loadedClass.image,
+          total_enrollment: loadedClass.total_enrollment,
+          category: loadedClass.category,
+        };
+        // console.log(enrollClass);
+        axiosPublic.post("/enrollClass", enrollClass).then((res) => {
+          console.log(res.data);
+        });
       }
     }
   };
@@ -89,14 +112,18 @@ const CheckoutForm = ({ loadedClass }) => {
         />
         <div className="text-center mt-5">
           <button
-            className="text-center bg-[#570DF8] py-2 text-white rounded-md w-[300px]"
+            className={`text-center py-2 bg-[#570DF8] text-white rounded-md w-[300px]`}
             type="submit"
-            disabled={!stripe || !clientSecret}
+            disabled={!stripe || !clientSecret || transactionId}
           >
             Pay
           </button>
           <p className="text-red-600">{error}</p>
-          {transactionId && <p className="text-green-600 mt-4">Your Transaction id : {transactionId}</p>}
+          {transactionId && (
+            <p className="text-green-600 mt-4">
+              Your Transaction id : {transactionId}
+            </p>
+          )}
         </div>
       </form>
     </div>

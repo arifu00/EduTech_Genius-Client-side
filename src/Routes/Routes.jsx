@@ -11,6 +11,8 @@ import ClassDetail from "../Pages/AllClasses/ClassDetail/ClassDetail";
 import Dashboard from "../Layout/Dashboard";
 import Profile from "../Pages/Dashboard/Profile/Profile";
 import PayClass from "../Pages/AllClasses/PayClass/PayClass";
+import EnrollClass from "../Pages/Dashboard/User/EnrollClass/EnrollClass";
+import EnrollDetail from "../Pages/Dashboard/User/EnrollClass/EnrollDetail/EnrollDetail";
 
 export const router = createBrowserRouter([
   {
@@ -66,11 +68,35 @@ export const router = createBrowserRouter([
   },
   {
     path: "dashboard",
-    element: <Dashboard></Dashboard>,
+    element: (
+      <PrivateRoute>
+        <Dashboard></Dashboard>
+      </PrivateRoute>
+    ),
     children: [
       {
         path: "profile",
-        element: <Profile></Profile>,
+        element: (
+          <PrivateRoute>
+            <Profile></Profile>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "enrollClass",
+        element: (
+          <PrivateRoute>
+            <EnrollClass></EnrollClass>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "enrollClass/:id",
+        element: (
+          <PrivateRoute>
+            <EnrollDetail></EnrollDetail>
+          </PrivateRoute>
+        ),
       },
     ],
   },

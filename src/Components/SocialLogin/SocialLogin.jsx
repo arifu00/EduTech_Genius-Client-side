@@ -1,9 +1,8 @@
-import { Button } from "@mui/material";
 import { useContext } from "react";
-import { FaGoogle } from "react-icons/fa";
 import { AuthContext } from "../../Providers/AuthProviders";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import { Button } from "@material-tailwind/react";
 const SocialLogin = () => {
   const { googleSignIn } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -30,12 +29,20 @@ const SocialLogin = () => {
   };
 
   return (
-    <div className="mt-4 ">
-      <Button onClick={handleGoogleSignIn} variant="outlined">
-        <div className="flex justify-center items-center gap-2 text-lg ">
-          <FaGoogle></FaGoogle>
-          Google
-        </div>
+    <div className="mt-4 flex justify-center">
+      <Button
+        onClick={handleGoogleSignIn}
+        size="lg"
+        variant="outlined"
+        color="blue-gray"
+        className="flex items-center  gap-3"
+      >
+        <img
+          src="https://docs.material-tailwind.com/icons/google.svg"
+          alt="metamask"
+          className="h-6 w-6"
+        />
+        Continue with Google
       </Button>
     </div>
   );
