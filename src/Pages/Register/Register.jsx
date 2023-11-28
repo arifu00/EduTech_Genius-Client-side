@@ -22,8 +22,6 @@ const Register = () => {
   const { createUser } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  const from = location.state?.from?.pathname || "/";
-  console.log("location on state", location.state);
 
   const {
     register,
@@ -49,7 +47,7 @@ const Register = () => {
           showConfirmButton: true,
           timer: 1200,
         });
-        navigate(from, { replace: true });
+        navigate(location?.state ? location?.state : "/");
         updateProfile(auth.currentUser, {
           displayName: name,
           photoURL: photo,

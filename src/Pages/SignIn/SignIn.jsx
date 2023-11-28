@@ -13,9 +13,6 @@ const SignIn = () => {
   const { loginUser } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  const from = location.state?.from?.pathname || "/";
-  console.log("location on state", from);
-
   const {
     register,
     handleSubmit,
@@ -37,7 +34,7 @@ const SignIn = () => {
           showConfirmButton: true,
           timer: 1200,
         });
-        navigate(from, { replace: true });
+        navigate(`${location.state ? location.state : "/"}`);
       })
       .catch((error) => {
         console.log(error.message);

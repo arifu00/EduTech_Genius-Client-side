@@ -9,6 +9,7 @@ import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import PrivateRoute from "./PrivateRoute";
 import ClassDetail from "../Pages/AllClasses/ClassDetail/ClassDetail";
 import Dashboard from "../Layout/Dashboard";
+import Profile from "../Pages/Dashboard/Profile/Profile";
 
 export const router = createBrowserRouter([
   {
@@ -53,13 +54,13 @@ export const router = createBrowserRouter([
     ],
   },
   {
-    path: 'dashboard',
+    path: "dashboard",
     element: <Dashboard></Dashboard>,
-    children:[
+    children: [
       {
-        path: 'profile',
-        element: 
-      }
-    ]
-  }
+        path: "profile",
+        element: <Profile></Profile>,
+      },
+    ],
+  },
 ]);
