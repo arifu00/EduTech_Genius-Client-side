@@ -7,7 +7,7 @@ const Profile = () => {
   return (
     <div>
       <Container>
-        <div className="bg-[#fff] w-11/12 mx-auto font-roboto h-screen">
+        <div className="bg-[#fff] w-11/12 mx-auto font-roboto h-screen md:p-10">
           <h2 className="text-3xl ml-2 font-bold">My Profile</h2>
           <div className="mt-10 flex gap-10 items-center ">
             <div className="">

@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import Container from "../../../Components/Container/Container";
 import {
   Card,
@@ -13,16 +13,8 @@ import {
 const ClassDetail = () => {
   const loadedClass = useLoaderData();
   //   console.log(loadedClass);
-  const {
-    _id,
-    title,
-    name,
-    image,
-    price,
-    shortDescription,
-    category,
-    total_enrollment,
-  } = loadedClass;
+  const { _id, title, name, image, price, shortDescription, total_enrollment } =
+    loadedClass;
   return (
     <div>
       <Container>
@@ -80,15 +72,17 @@ const ClassDetail = () => {
               </Typography>
             </div>
             <Typography color="gray">
-              <strong className="font-black">More info: </strong><br />
+              <strong className="font-black">More info: </strong>
+              <br />
               {shortDescription}
             </Typography>
-           
           </CardBody>
           <CardFooter className="pt-3">
-            <Button size="lg" fullWidth={true}>
-              Pay Now
-            </Button>
+            <Link to={`/class/payClass/${_id}`}>
+              <Button size="lg" fullWidth={true}>
+                Pay Now
+              </Button>
+            </Link>
           </CardFooter>
         </Card>
       </Container>

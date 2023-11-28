@@ -10,6 +10,7 @@ import PrivateRoute from "./PrivateRoute";
 import ClassDetail from "../Pages/AllClasses/ClassDetail/ClassDetail";
 import Dashboard from "../Layout/Dashboard";
 import Profile from "../Pages/Dashboard/Profile/Profile";
+import PayClass from "../Pages/AllClasses/PayClass/PayClass";
 
 export const router = createBrowserRouter([
   {
@@ -30,6 +31,16 @@ export const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <ClassDetail></ClassDetail>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/allClasses/${params.id}`),
+      },
+      {
+        path: "class/payClass/:id",
+        element: (
+          <PrivateRoute>
+            <PayClass></PayClass>
           </PrivateRoute>
         ),
         loader: ({ params }) =>
