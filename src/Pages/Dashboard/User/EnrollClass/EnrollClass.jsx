@@ -1,28 +1,31 @@
 import { useQuery } from "@tanstack/react-query";
 import Container from "../../../../Components/Container/Container";
-import useAxiosPublic from "../../../../hooks/useAxiosPublic";
 import EnrollCard from "./EnrollCard";
 import SkeletonEffect from "../../../../Components/SkeletonEffect/SkeletonEffect";
+import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+import { useContext } from "react";
+import { AuthContext } from "../../../../Providers/AuthProviders";
 
 const EnrollClass = () => {
-  const axiosPublic = useAxiosPublic();
+  const { user } = useContext(AuthContext);
+  const axiosSecure = useAxiosSecure();
   const { data: enrollClass = [], isLoading } = useQuery({
-    queryKey: ["enrollClass"],
+    queryKey: ["enrollClass", user?.email],
     queryFn: async () => {
-      const res = await axiosPublic.get("/enrollClass");
+      const res = await axiosSecure.get(`/enrollClass?email=${user.email}`);
       return res.data;
     },
   });
   console.log(enrollClass, isLoading);
   if (isLoading) {
-   <SkeletonEffect></SkeletonEffect>
+    <SkeletonEffect></SkeletonEffect>;
   }
   return (
     <Container>
-      <h2 className="md:p-10 font-roboto font-black text-3xl">
+      <h2 className="md:px-10 font-roboto font-black text-3xl mt-12 text-black">
         My Enroll Class
       </h2>
-      <div className="lg:h-screen flex items-center md:p-10 -mt-12">
+      <div className=" flex items-center md:px-10 md:py-4 ">
         <div className="">
           {enrollClass.map((enrollCard) => (
             <EnrollCard

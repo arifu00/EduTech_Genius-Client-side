@@ -1,11 +1,11 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useContext, useEffect, useState } from "react";
-import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import { AuthContext } from "../../../Providers/AuthProviders";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const CheckoutForm = ({ loadedClass }) => {
-  const axiosPublic = useAxiosPublic();
+  const axiosSecure = useAxiosSecure();
   const { user } = useContext(AuthContext);
   const stripe = useStripe();
   const elements = useElements();
@@ -15,7 +15,7 @@ const CheckoutForm = ({ loadedClass }) => {
   // console.log(loadedClass);
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
-    axiosPublic
+    axiosSecure
       .post("/create-payment-intent", {
         price: loadedClass.price,
       })
@@ -23,7 +23,7 @@ const CheckoutForm = ({ loadedClass }) => {
         console.log(res.data.clientSecret);
         setClientSecret(res.data.clientSecret);
       });
-  }, [axiosPublic, loadedClass]);
+  }, [axiosSecure, loadedClass]);
 
   //   payment related form handler
   const handleSubmit = async (event) => {
@@ -84,7 +84,7 @@ const CheckoutForm = ({ loadedClass }) => {
           category: loadedClass.category,
         };
         // console.log(enrollClass);
-        axiosPublic.post("/enrollClass", enrollClass).then((res) => {
+        axiosSecure.post("/enrollClass", enrollClass).then((res) => {
           console.log(res.data);
         });
       }
