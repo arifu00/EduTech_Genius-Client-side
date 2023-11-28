@@ -17,11 +17,12 @@ import { AuthContext } from "../../Providers/AuthProviders";
 import { updateProfile } from "firebase/auth";
 import auth from "../../firebase/firebase.config";
 import Swal from "sweetalert2";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
   const navigate = useNavigate();
-
+  const axiosPublic = useAxiosPublic();
 
   const {
     register,
@@ -38,23 +39,34 @@ const Register = () => {
 
     createUser(email, password)
       .then((res) => {
-        const user = res.user;
-        console.log(user);
-        Swal.fire({
-          position: "center",
-          icon: "success",
-          title: "Register Successful",
-          showConfirmButton: true,
-          timer: 1200,
-        });
-        navigate(location?.state ? location?.state : "/");
+        // const user = res.user;
+        // console.log(user);
+
         updateProfile(auth.currentUser, {
           displayName: name,
           photoURL: photo,
         })
           .then(() => {
+            const userInfo = {
+              name: data.name,
+              email: data.email,
+              image: data.photo,
+            };
+            axiosPublic.post("/user", userInfo).then((res) => {
+              if (res.data.insertedId) {
+                Swal.fire({
+                  position: "center",
+                  icon: "success",
+                  title: "Sign Up complete",
+                  showConfirmButton: false,
+                  timer: 1500,
+                });
+                navigate(location?.state ? location?.state : "/");
+              }
+            });
+
             // User information updated successfully
-            console.log("User created with name and photo:", user);
+            // console.log("User created with name and photo:",);
           })
           .catch((error) => {
             console.error("Error updating user information:", error.message);

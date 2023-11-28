@@ -2,12 +2,13 @@ import { FaChalkboardTeacher, FaHome, FaUsers } from "react-icons/fa";
 import { NavLink, Outlet } from "react-router-dom";
 import { MdOutlineMenuBook } from "react-icons/md";
 import { GiTeacher } from "react-icons/gi";
+import { VscGitPullRequestGoToChanges } from "react-icons/vsc";
 import { CgProfile } from "react-icons/cg";
 import Container from "../Components/Container/Container";
 import logo from "../assets/banner/edutechLogo.jpeg";
 
 const Dashboard = () => {
-  const isAdmin = false;
+  const isAdmin = true;
   return (
     <Container>
       <div className="flex font-lora -mt-5 ">
@@ -24,7 +25,7 @@ const Dashboard = () => {
               <>
                 <li className="">
                   <NavLink
-                    to="/dashboard/adminHome"
+                    to="/dashboard/teacherRequest"
                     className={({ isActive, isPending }) =>
                       isPending
                         ? "pending"
@@ -33,42 +34,12 @@ const Dashboard = () => {
                         : "flex gap-3 items-center"
                     }
                   >
-                    <FaHome className="text-xl"></FaHome> Admin Home
+                    <VscGitPullRequestGoToChanges /> Teacher Request
                   </NavLink>
                 </li>
                 <li className="mt-6">
                   <NavLink
-                    to="/dashboard/addItems"
-                    className={({ isActive, isPending }) =>
-                      isPending
-                        ? "pending"
-                        : isActive
-                        ? "text-[#EEFF25] flex gap-3 items-center"
-                        : "flex gap-3 items-center"
-                    }
-                  >
-                    {/* <FaUtensils className="text-xl"></FaUtensils>  */}
-                    Add Items
-                  </NavLink>
-                </li>
-                <li className="mt-6">
-                  <NavLink
-                    to="/dashboard/manageItems"
-                    className={({ isActive, isPending }) =>
-                      isPending
-                        ? "pending"
-                        : isActive
-                        ? "text-[#EEFF25] flex gap-3 items-center"
-                        : "flex gap-3 items-center"
-                    }
-                  >
-                    {/* <FaBars className="text-xl"></FaBars>  */}
-                    Manage Items
-                  </NavLink>
-                </li>
-                <li className="mt-6">
-                  <NavLink
-                    to="/dashboard/manageBookings"
+                    to="/dashboard/users"
                     className={({ isActive, isPending }) =>
                       isPending
                         ? "pending"
@@ -77,24 +48,40 @@ const Dashboard = () => {
                         : "flex gap-3 items-center"
                     }
                   >
-                    {/* <FaBook className="text-xl"></FaBook>  */}
-                    Manage Bookings
+                    <FaUsers className="text-xl"></FaUsers> Users
                   </NavLink>
                 </li>
                 <li className="mt-6">
                   <NavLink
-                    to="/dashboard/allUsers"
+                    to="/dashboard/allClasses"
                     className={({ isActive, isPending }) =>
                       isPending
                         ? "pending"
                         : isActive
-                        ? "text-[#fff] font-bold flex gap-3 items-center"
+                        ? "text-[#EEFF25] flex gap-3 items-center"
                         : "flex gap-3 items-center"
                     }
                   >
-                    <FaUsers className="text-xl"></FaUsers> All Users
+                    <FaChalkboardTeacher />
+                    All Classes
                   </NavLink>
                 </li>
+                <li className="mt-6">
+                  <NavLink
+                    to="/dashboard/profile"
+                    className={({ isActive, isPending }) =>
+                      isPending
+                        ? "pending"
+                        : isActive
+                        ? "text-[#EEFF25] flex gap-3 items-center"
+                        : "flex gap-3 items-center"
+                    }
+                  >
+                    <CgProfile />
+                    Profile
+                  </NavLink>
+                </li>
+                
               </>
             ) : (
               <>

@@ -3,17 +3,25 @@ import { AuthContext } from "../../Providers/AuthProviders";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@material-tailwind/react";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 const SocialLogin = () => {
   const { googleSignIn } = useContext(AuthContext);
   const navigate = useNavigate();
-
-  const from = location.state?.from?.pathname || "/";
-  console.log("location on state", location.state);
+  const axiosPublic = useAxiosPublic();
 
   const handleGoogleSignIn = () => {
     googleSignIn()
       .then((res) => {
         console.log(res.user);
+        const userInfo = {
+          email: res.user.email,
+          name: res.user.displayName,
+          image: res.user.photoURL
+        };
+        axiosPublic.post("/user", userInfo).then((res) => {
+          console.log(res.data);
+          navigate(`${location.state ? location.state : "/"}`);
+        });
         Swal.fire({
           position: "center",
           icon: "success",
@@ -21,7 +29,6 @@ const SocialLogin = () => {
           showConfirmButton: true,
           timer: 1200,
         });
-        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.log(error.message);

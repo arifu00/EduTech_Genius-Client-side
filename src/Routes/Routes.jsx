@@ -13,6 +13,7 @@ import Profile from "../Pages/Dashboard/Profile/Profile";
 import PayClass from "../Pages/AllClasses/PayClass/PayClass";
 import EnrollClass from "../Pages/Dashboard/User/EnrollClass/EnrollClass";
 import EnrollDetail from "../Pages/Dashboard/User/EnrollClass/EnrollDetail/EnrollDetail";
+import Users from "../Pages/Dashboard/Admin/Users/Users";
 
 export const router = createBrowserRouter([
   {
@@ -97,6 +98,10 @@ export const router = createBrowserRouter([
             <EnrollDetail></EnrollDetail>
           </PrivateRoute>
         ),
+      },
+      {
+        path: "users",
+        element: <Users></Users>,
       },
     ],
   },
