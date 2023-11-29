@@ -1,6 +1,28 @@
+import { useQuery } from "@tanstack/react-query";
 import Container from "../../../Components/Container/Container";
 import ourStatistics from "../../../assets/Statistics/OurStatisticsjpg.jpg";
+import useAxiosPublic from "../../../hooks/useAxiosPublic";
 const OurStatistics = () => {
+  const axiosPublic = useAxiosPublic();
+  const { data: allClasses = [],  } = useQuery({
+    queryKey: ["allClasses"],
+    queryFn: async () => {
+      const res = await axiosPublic.get(
+        "/allClasses"
+      );
+      return res.data;
+    },
+  });
+  const { data: user = [],  } = useQuery({
+    queryKey: ["user"],
+    queryFn: async () => {
+      const res = await axiosPublic.get(
+        "/user"
+      );
+      return res.data;
+    },
+  });
+  console.log(user)
   return (
     <Container>
       <div className="bg-[#E8FAFF] py-20 md:py-40 px-8 rounded-xl my-12">
@@ -23,13 +45,13 @@ const OurStatistics = () => {
 
             <div className="flex flex-wrap mt-12 text-center gap-10 justify-center">
               <div className="">
-                <h1 className="font-black text-xl md:text-3xl mb-2">60</h1>
+                <h1 className="font-black text-xl md:text-3xl mb-2">{user?.length}</h1>
                 <h3 className="font-semibold text-lg md:text-2xl">
                   Total User
                 </h3>
               </div>
               <div className="">
-                <h1 className="font-black text-xl md:text-3xl mb-2">20</h1>
+                <h1 className="font-black text-xl md:text-3xl mb-2">{allClasses?.length}</h1>
                 <h3 className="font-semibold text-lg md:text-2xl">
                   Total Classes
                 </h3>

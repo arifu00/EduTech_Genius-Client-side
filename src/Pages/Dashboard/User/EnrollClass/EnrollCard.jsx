@@ -31,7 +31,7 @@ const EnrollCard = ({ enrollCard }) => {
           >
             {enrollCard.title}
           </Typography>
-          <Typography color="lime" className="mb-8 font-normal">
+          <Typography color="blue" className="mb-8 font-normal">
             {enrollCard.teacherName}
           </Typography>
           <Link to={`/dashboard/enrollClass/${enrollCard._id}`}>

@@ -1,9 +1,20 @@
 import { useContext } from "react";
 import Container from "../../../Components/Container/Container";
 import { AuthContext } from "../../../Providers/AuthProviders";
+import { useQuery } from "@tanstack/react-query";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const Profile = () => {
   const { user } = useContext(AuthContext);
+  const axiosSecure = useAxiosSecure();
+  const { data: dbuser = [] } = useQuery({
+    queryKey: ["dbuser", user?.email],
+    queryFn: async () => {
+      const res = await axiosSecure.get(`/user?email=${user.email}`);
+      return res.data;
+    },
+  });
+  // console.log(dbuser[0]?.role, isLoading);
   return (
     <div>
       <Container>
@@ -46,8 +57,7 @@ const Profile = () => {
                   <small className="font-bold text-base">Profile Role:</small>
                 </h6>
                 <h2 className="mt-1 font-lora font-black text-xl">
-                  {/* {user?.email} */}
-                  Student
+                  {dbuser[0]?.role || 'Student'}
                 </h2>
               </div>
             </div>

@@ -27,12 +27,16 @@ const EnrollClass = () => {
       </h2>
       <div className=" flex items-center md:px-10 md:py-4 ">
         <div className="">
-          {enrollClass.map((enrollCard) => (
-            <EnrollCard
-              key={enrollCard._id}
-              enrollCard={enrollCard}
-            ></EnrollCard>
-          ))}
+          {enrollClass.length === 0 ? (
+            <h4 className="font-lora text-red-600 text-xl text-center">Sorry, you have not enrolled in any classes</h4>
+          ) : (
+            enrollClass.map((enrollCard) => (
+              <EnrollCard
+                key={enrollCard._id}
+                enrollCard={enrollCard}
+              ></EnrollCard>
+            ))
+          )}
         </div>
       </div>
     </Container>

@@ -14,6 +14,8 @@ import PayClass from "../Pages/AllClasses/PayClass/PayClass";
 import EnrollClass from "../Pages/Dashboard/User/EnrollClass/EnrollClass";
 import EnrollDetail from "../Pages/Dashboard/User/EnrollClass/EnrollDetail/EnrollDetail";
 import Users from "../Pages/Dashboard/Admin/Users/Users";
+import TeacherRequest from "../Pages/Dashboard/Admin/TeacherRequest/TeacherRequest";
+import AdminRoute from "./AdminRoute";
 
 export const router = createBrowserRouter([
   {
@@ -101,7 +103,19 @@ export const router = createBrowserRouter([
       },
       {
         path: "users",
-        element: <Users></Users>,
+        element: (
+          <AdminRoute>
+            <Users></Users>
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "teacherRequest",
+        element: (
+          <AdminRoute>
+            <TeacherRequest></TeacherRequest>
+          </AdminRoute>
+        ),
       },
     ],
   },

@@ -6,9 +6,10 @@ import { VscGitPullRequestGoToChanges } from "react-icons/vsc";
 import { CgProfile } from "react-icons/cg";
 import Container from "../Components/Container/Container";
 import logo from "../assets/banner/edutechLogo.jpeg";
+import useAdmin from "../hooks/useAdmin";
 
 const Dashboard = () => {
-  const isAdmin = true;
+  const [isAdmin] = useAdmin();
   return (
     <Container>
       <div className="flex font-lora -mt-5 ">
@@ -44,7 +45,7 @@ const Dashboard = () => {
                       isPending
                         ? "pending"
                         : isActive
-                        ? "text-[#fff] font-bold flex gap-3 items-center"
+                        ? "text-[#EEFF25] flex gap-3 items-center"
                         : "flex gap-3 items-center"
                     }
                   >
@@ -81,7 +82,6 @@ const Dashboard = () => {
                     Profile
                   </NavLink>
                 </li>
-                
               </>
             ) : (
               <>
@@ -137,21 +137,6 @@ const Dashboard = () => {
             </li>
             <li className="mt-6">
               <NavLink
-                to="/teachOnEduTech"
-                className={({ isActive, isPending }) =>
-                  isPending
-                    ? "pending"
-                    : isActive
-                    ? "text-[#fff] font-bold flex gap-3 items-center"
-                    : "flex gap-3 items-center"
-                }
-              >
-                <GiTeacher />
-                Tech On EduTech
-              </NavLink>
-            </li>
-            <li className="mt-6">
-              <NavLink
                 to="/allClasses"
                 className={({ isActive, isPending }) =>
                   isPending
@@ -163,6 +148,21 @@ const Dashboard = () => {
               >
                 <MdOutlineMenuBook />
                 All Class
+              </NavLink>
+            </li>
+            <li className="mt-6">
+              <NavLink
+                to="/teachOnEduTech"
+                className={({ isActive, isPending }) =>
+                  isPending
+                    ? "pending"
+                    : isActive
+                    ? "text-[#fff] font-bold flex gap-3 items-center"
+                    : "flex gap-3 items-center"
+                }
+              >
+                <GiTeacher />
+                Tech On EduTech
               </NavLink>
             </li>
           </ul>

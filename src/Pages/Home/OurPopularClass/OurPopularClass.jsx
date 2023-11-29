@@ -6,17 +6,30 @@ import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import Container from "../../../Components/Container/Container";
-import { Rating } from "@mui/material";
 import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
+import useAxiosPublic from "../../../hooks/useAxiosPublic";
+import { useQuery } from "@tanstack/react-query";
 const OurPopularClass = () => {
-  const [courses, setCourses] = useState([]);
-  //   console.log(course);
-  useEffect(() => {
-    fetch("PopularCorses.json")
-      .then((res) => res.json())
-      .then((data) => setCourses(data));
-  }, []);
+  const axiosPublic = useAxiosPublic();
   const [slidesPerView, setSlidesPerView] = useState(1);
+  // const [courses, setCourses] = useState([]);
+  // //   console.log(course);
+  // useEffect(() => {
+  //   fetch("PopularCorses.json")
+  //     .then((res) => res.json())
+  //     .then((data) => setCourses(data));
+  // }, []);
+
+  const { data: popularClass = [] } = useQuery({
+    queryKey: ["allClasses"],
+    queryFn: async () => {
+      const res = await axiosPublic.get(
+        "/allClasses?sortField=total_enrollment&&sortOrder=desc"
+      );
+      return res.data;
+    },
+  });
+  // console.log(popularClass, isLoading);
 
   useEffect(() => {
     const handleResize = () => {
@@ -65,9 +78,9 @@ const OurPopularClass = () => {
             className="mySwiper mb-12 text-center"
           >
             <div className="my-12">
-              {courses.map((course) => (
+              {popularClass.slice(0, 6).map((course) => (
                 <SwiperSlide key={course.id}>
-                  <Card className="">
+                  <Card className="h-[450px] mb-4">
                     <CardHeader floated={false} className="h-60">
                       <img src={course.image} alt={course.course_title} />
                     </CardHeader>
@@ -81,12 +94,9 @@ const OurPopularClass = () => {
                       <h6 className="font-bold font-lora text-xl italic">
                         Total Enrollment: {course.total_enrollment}
                       </h6>
-                      <Rating
-                        name="half-rating-read"
-                        defaultValue={course.review}
-                        precision={0.1}
-                        readOnly
-                      />
+                      <p className="">
+                        {course.shortDescription}
+                      </p>
                     </CardBody>
                   </Card>
                 </SwiperSlide>

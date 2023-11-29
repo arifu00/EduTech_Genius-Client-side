@@ -111,7 +111,7 @@ const Users = () => {
                   <StyledTableCell align="center">{user.name}</StyledTableCell>
                   <StyledTableCell align="center">{user.email}</StyledTableCell>
                   <StyledTableCell align="center">
-                    {user?.role === "admin" ? (
+                    {user?.role === "Admin" ? (
                       <button
                         disabled
                         className="flex items-center justify-center text-center text-green-600 text-lg font-black gap-3"
