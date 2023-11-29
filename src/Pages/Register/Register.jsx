@@ -19,6 +19,8 @@ import auth from "../../firebase/firebase.config";
 import Swal from "sweetalert2";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 
+const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
+const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 const Register = () => {
   const { createUser } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -30,14 +32,21 @@ const Register = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
-    const name = data.name;
-    const email = data.email;
-    const password = data.password;
-    const photo = data.photo;
-    console.log(name, email, password, photo);
+  const onSubmit = async(data) => {
+    const imageFile = { image: data.photo[0] };
+    const imgRes = await axiosPublic.post(image_hosting_api, imageFile, {
+      headers: {
+        "content-type": "multipart/form-data",
+      },
+    });
+    if (imgRes.data.success) {
+      const name = data.name;
+      const email = data.email;
+      const password = data.password;
+      const photo = imgRes.data.data.display_url;
+      console.log(name, email, password, photo);
 
-    createUser(email, password)
+      createUser(email, password)
       .then((res) => {
         // const user = res.user;
         // console.log(user);
@@ -75,6 +84,11 @@ const Register = () => {
       .catch((error) => {
         console.log(error.message);
       });
+
+    }
+   
+
+  
   };
   return (
     <div className="my-20">
@@ -159,7 +173,7 @@ const Register = () => {
                 </Typography>
 
                 <Input
-                  type="text"
+                  type="file"
                   name="photo"
                   size="lg"
                   placeholder="Photo Url"
