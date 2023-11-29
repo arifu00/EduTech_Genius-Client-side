@@ -11,7 +11,13 @@ const AdminRoute = ({ children }) => {
   // console.log(isAdmin, isAdminLoading);
   const location = useLocation();
   const handleLogOut = () => {
-    logOut().then().catch();
+    logOut()
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
   };
 
   if (loading || isAdminLoading) {

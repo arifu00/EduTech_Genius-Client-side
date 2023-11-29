@@ -1,15 +1,30 @@
 import { FaChalkboardTeacher, FaHome, FaUsers } from "react-icons/fa";
 import { NavLink, Outlet } from "react-router-dom";
-import { MdOutlineMenuBook } from "react-icons/md";
+import { MdLibraryAdd, MdOutlineMenuBook } from "react-icons/md";
 import { GiTeacher } from "react-icons/gi";
 import { VscGitPullRequestGoToChanges } from "react-icons/vsc";
 import { CgProfile } from "react-icons/cg";
 import Container from "../Components/Container/Container";
 import logo from "../assets/banner/edutechLogo.jpeg";
 import useAdmin from "../hooks/useAdmin";
+import { useContext } from "react";
+import { AuthContext } from "../Providers/AuthProviders";
+import useAxiosSecure from "../hooks/useAxiosSecure";
+import { useQuery } from "@tanstack/react-query";
 
 const Dashboard = () => {
   const [isAdmin] = useAdmin();
+  const { user } = useContext(AuthContext);
+  const axiosSecure = useAxiosSecure();
+  const { data: dbuser = [] } = useQuery({
+    queryKey: ["dbuser", user?.email],
+    queryFn: async () => {
+      const res = await axiosSecure.get(`/user?email=${user.email}`);
+      return res.data;
+    },
+  });
+  // console.log();
+
   return (
     <Container>
       <div className="flex font-lora -mt-5 ">
@@ -65,6 +80,52 @@ const Dashboard = () => {
                   >
                     <FaChalkboardTeacher />
                     All Classes
+                  </NavLink>
+                </li>
+                <li className="mt-6">
+                  <NavLink
+                    to="/dashboard/profile"
+                    className={({ isActive, isPending }) =>
+                      isPending
+                        ? "pending"
+                        : isActive
+                        ? "text-[#EEFF25] flex gap-3 items-center"
+                        : "flex gap-3 items-center"
+                    }
+                  >
+                    <CgProfile />
+                    Profile
+                  </NavLink>
+                </li>
+              </>
+            ) : dbuser[0]?.role === "Teacher" ? (
+              <>
+                <li className="">
+                  <NavLink
+                    to="/dashboard/addClass"
+                    className={({ isActive, isPending }) =>
+                      isPending
+                        ? "pending"
+                        : isActive
+                        ? "text-[#EEFF25] flex gap-3 items-center"
+                        : "flex gap-3 items-center"
+                    }
+                  >
+                    <MdLibraryAdd /> Add Class
+                  </NavLink>
+                </li>
+                <li className="mt-6">
+                  <NavLink
+                    to="/dashboard/myClass"
+                    className={({ isActive, isPending }) =>
+                      isPending
+                        ? "pending"
+                        : isActive
+                        ? "text-[#EEFF25] flex gap-3 items-center"
+                        : "flex gap-3 items-center"
+                    }
+                  >
+                    <FaChalkboardTeacher /> My Class
                   </NavLink>
                 </li>
                 <li className="mt-6">
