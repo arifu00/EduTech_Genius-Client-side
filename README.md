@@ -1,8 +1,8 @@
-# Food Share Hub
+# EduTech Genius
 
 ## [ Live Link](https://edutechgenius-5801e.web.app/)
 
-Click here for the Live repo: [https://edutechgenius-5801e.web.app/](https://edutechgenius-5801e.web.app/)
+Click here for the Live Link: [https://edutechgenius-5801e.web.app/](https://edutechgenius-5801e.web.app/)
 
 
 ## features and functionalities of this website

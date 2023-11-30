@@ -43,7 +43,7 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/allClasses/${params.id}`),
+          fetch(`https://edu-tech-genius-server.vercel.app/${params.id}`),
       },
       {
         path: "class/payClass/:id",
@@ -53,7 +53,7 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/allClasses/${params.id}`),
+          fetch(`https://edu-tech-genius-server.vercel.app/${params.id}`),
       },
       {
         path: "teachOnEduTech",
@@ -129,7 +129,7 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/allClasses/${params.id}`),
+          fetch(`https://edu-tech-genius-server.vercel.app/${params.id}`),
       },
       {
         path: "users",
