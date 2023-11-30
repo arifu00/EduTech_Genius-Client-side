@@ -20,18 +20,19 @@ const AllClasses = () => {
   const { data: allClasses = [], isLoading } = useQuery({
     queryKey: ["allClasses"],
     queryFn: async () => {
-      const res = await axiosPublic.get("/allClasses");
+      const res = await axiosPublic.get("/allClasses?status=approved");
       return res.data;
     },
   });
   console.log(allClasses, isLoading);
- 
 
   if (isLoading) {
-    return <div className="my-20 space-y-8">
+    return (
+      <div className="my-20 space-y-8">
         <SectionTitle tittle={"Our All Classes"}></SectionTitle>
-      <SkeletonEffect></SkeletonEffect>
-    </div>;
+        <SkeletonEffect></SkeletonEffect>
+      </div>
+    );
   }
   return (
     <div>

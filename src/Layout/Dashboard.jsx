@@ -69,7 +69,7 @@ const Dashboard = () => {
                 </li>
                 <li className="mt-6">
                   <NavLink
-                    to="/dashboard/allClasses"
+                    to="/dashboard/admin/allClasses"
                     className={({ isActive, isPending }) =>
                       isPending
                         ? "pending"

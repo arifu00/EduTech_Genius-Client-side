@@ -31,7 +31,7 @@ const MyClass = () => {
     // console.log(id);
     Swal.fire({
       title: "Are you sure?",
-      text: "Do you want to Remove  this user request?",
+      text: "Do you want to Remove  this Class",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
