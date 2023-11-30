@@ -18,6 +18,7 @@ import TeacherRequest from "../Pages/Dashboard/Admin/TeacherRequest/TeacherReque
 import AdminRoute from "./AdminRoute";
 import MyClass from "../Pages/Dashboard/Teacher/MyClass/MyClass";
 import AddClass from "../Pages/Dashboard/Teacher/AddClass/AddClass";
+import UpdateClass from "../Pages/Dashboard/Teacher/UpdateClass/UpdateClass";
 
 export const router = createBrowserRouter([
   {
@@ -110,6 +111,12 @@ export const router = createBrowserRouter([
       {
         path: "myClass",
         element: <MyClass></MyClass>,
+      },
+      {
+        path: "updateClass/:id",
+        element: <UpdateClass></UpdateClass>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/allClasses/${params.id}`),
       },
       {
         path: "users",

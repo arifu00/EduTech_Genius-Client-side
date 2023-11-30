@@ -48,7 +48,7 @@ const TeachOnEduTech = () => {
     });
     console.log(teacherRequest);
   };
-  
+
   const { data: teacherRequest = [] } = useQuery({
     queryKey: ["teacherRequest", user?.email],
     queryFn: async () => {
@@ -61,6 +61,7 @@ const TeachOnEduTech = () => {
   useEffect(() => {
     teacherRequest.map((request) => {
       setStatus(request.status);
+      // console.log(request.status);
     });
   }, [teacherRequest]);
 
@@ -83,6 +84,13 @@ const TeachOnEduTech = () => {
                   very soon.
                 </h2>
               </div>
+            ) : status === "Accepted" ? (
+              <>
+                {" "}
+                <h2 className="text-center font-lora text-xl font-bold mt-4 text-green-600 lg:w-[750px] mx-auto">
+                Your request has been successful, and you have been assigned as a teacher on our team. <br /> thank you 🖤
+                </h2>
+              </>
             ) : (
               <>
                 <h6 className="text-base text-red-600 font-medium text-center">
