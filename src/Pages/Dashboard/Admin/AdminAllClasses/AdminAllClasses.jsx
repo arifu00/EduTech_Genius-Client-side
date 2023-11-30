@@ -10,6 +10,7 @@ import { useQuery } from "@tanstack/react-query";
 import { FaCheck, FaTimes } from "react-icons/fa";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
 import { Button } from "@mui/material";
+import Swal from "sweetalert2";
 
 //  material ui table style
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -43,7 +44,60 @@ const AdminAllClasses = () => {
     },
   });
 
-  console.log(allClasses);
+  //   console.log(allClasses);
+
+  const handleApproved = (id) => {
+    console.log(id);
+    Swal.fire({
+      title: "Are you sure?",
+      text: "Do you want to approved this Class ?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, make it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosSecure.patch(`/adminApproved/allClasses/${id}`).then((res) => {
+          console.log(res.data);
+          if (res.data.modifiedCount > 0) {
+            Swal.fire({
+              title: "Successful",
+              text: "You can Approved this Class",
+              icon: "success",
+            });
+            refetch();
+          }
+        });
+      }
+    });
+  };
+  const handleRejected = (id) => {
+    console.log(id);
+    Swal.fire({
+      title: "Are you sure?",
+      text: "Do you want to Reject this Class ?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, make it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosSecure.patch(`/adminRejected/allClasses/${id}`).then((res) => {
+          console.log(res.data);
+          if (res.data.modifiedCount > 0) {
+            Swal.fire({
+              title: "Successful",
+              text: "You can Rejected this Class",
+              icon: "success",
+            });
+            refetch();
+          }
+        });
+      }
+    });
+  };
   return (
     <div>
       <div className="bg-[#fff] rounded-md w-11/12 mx-auto mt-12 px-8 pb-12">
@@ -105,9 +159,13 @@ const AdminAllClasses = () => {
                   <StyledTableCell align="center">
                     {allClass?.status === "approved" ||
                     allClass?.status === "approved" ? (
-                      <p className="text-cyan-700 font-lora first-letter:uppercase">{allClass.status}</p>
+                      <p className="text-cyan-700 font-lora first-letter:uppercase">
+                        {allClass.status}
+                      </p>
                     ) : (
-                      <p className="text-red-700 font-lora first-letter:uppercase">{allClass.status}</p>
+                      <p className="text-red-700 font-lora first-letter:uppercase">
+                        {allClass.status}
+                      </p>
                     )}
                   </StyledTableCell>
                   <StyledTableCell align="center">
@@ -118,7 +176,7 @@ const AdminAllClasses = () => {
                       </Button>
                     ) : (
                       <button
-                        // onClick={() => handleAccept(allClass.email)}
+                        onClick={() => handleApproved(allClass._id)}
                         className="flex items-center justify-center  hover:text-red-600 gap-3"
                       >
                         <FaCheck className="text-3xl" />
@@ -133,7 +191,7 @@ const AdminAllClasses = () => {
                       </button>
                     ) : (
                       <button
-                        // onClick={() => handleRejected(allClass._id)}
+                        onClick={() => handleRejected(allClass._id)}
                         className="flex items-center justify-center  hover:text-red-600 gap-3"
                       >
                         <FaTimes className="text-3xl" />
