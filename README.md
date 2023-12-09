@@ -3,6 +3,7 @@
 ## [ Live Link](https://edutechgenius-5801e.web.app/)
 
 Click here for the Live Link: [https://edutechgenius-5801e.web.app/](https://edutechgenius-5801e.web.app/)
+<br/>
 Click here for the server side repo Link: [https://github.com/arifu00/EduTech_Genius-server-side](https://github.com/arifu00/EduTech_Genius-server-side)
 
 ## 🎯 Using Technology
